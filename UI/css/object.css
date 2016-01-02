@@ -1,0 +1,275 @@
+/* ============== TEXT ============== */
+.text-right {
+    text-align: right;
+}
+
+/* ============== OBJECTS ============== */
+.object-right {
+    float: right;
+}
+
+.object-opacity {
+    opacity: 0.6;
+}
+
+.object-radius {
+    border-radius: 4px;
+}
+
+.one-content-head {
+    border-radius: 4px 4px 0 0 / 4px 4px 0 0;
+    border: 1px solid #ccc;
+    margin: 12px;
+    margin-bottom: 0;
+    padding: 8px;
+    position: relative;
+    bottom: -1px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+.one-content {
+    border-radius: 0 0 4px 4px / 0 0 4px 4px;
+    border: 1px solid #ccc;
+    margin: 12px;
+    margin-top: 0;
+}
+
+/* ============== TICKET ============== */
+.ticket {
+    margin: 0;
+    padding: 0;
+}
+
+.ticket li {
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+}
+
+.ticket li:last-child {
+    border-bottom: none;
+    border-radius: 0 0 4px 4px / 0 0 4px 4px;
+}
+
+.ticket li:hover {
+    background: #eef7fd;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+.ticket li a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.ticket li a div {
+    height: 100%;
+    float: left;
+    padding-top: 20px;
+    color: #777;
+}
+
+.ticket .id,
+.ticket .status,
+.ticket .day,
+.ticket .count {
+    width: 10%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.ticket .detail {
+    width: 60%;
+    padding: 0;
+}
+
+.ticket .name,
+.ticket .author {
+    height: 50%;
+    width: 100%;
+    padding: 0;
+}
+
+.ticket .name {
+    padding-top: 10px;
+    color: #337ab7;
+    font-weight: bold;
+}
+
+.ticket .count i {
+    font-weight: lighter;
+    font-size: 6px;
+    margin-right: 1px;
+}
+
+/* ============== TAGS ============== */
+.new {
+    width: 20px;
+    height: 13px;
+    background: #d25653;
+    color: #fefefe;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    font-size: 2px;
+}
+
+/* ============== DETAIL-HEADER ============== */
+.detail-header {
+    width: 100%;
+    height: 100%;
+    float: left;
+    color: #fefefe;
+}
+
+.detail-header div {
+    height: 100%;
+    float: left;
+    padding-top: 20px;
+}
+
+.detail-header .id,
+.detail-header .status,
+.detail-header .day,
+.detail-header .count {
+    width: 10%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.detail-header .name,
+.detail-header .author {
+    height: 50%;
+    width: 100%;
+    padding: 0;
+}
+
+.detail-header .name {
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.detail-header .detail {
+    width: 60%;
+    padding: 0;
+}
+
+/* ============== AUTHOR ============== */
+.author {
+    margin: 0;
+    padding: 0;
+}
+
+.author li {
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    height: 70px;
+}
+
+.author li:last-child {
+    border-bottom: none;
+    border-radius: 0 0 4px 4px / 0 0 4px 4px;
+}
+
+.author li a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.author li a div {
+    height: 100%;
+    float: left;
+    padding-top: 25px;
+    color: #777;
+}
+
+.author .thumbnail {
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.author .name {
+    width: 80%;
+    padding-left: 12px;
+    color: #337ab7;
+    font-weight: bold;
+}
+
+.author li:hover {
+    background: #eef7fd;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+
+/* ============== STORE-TICKET ============== */
+.store-ticket {
+    margin: 12px;
+    padding: 0;
+}
+
+.store-ticket li {
+    list-style: none;
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    float: left;
+    margin-bottom: 12px;
+}
+
+.store-ticket li a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.store-ticket li:nth-child(2) {
+    margin: 0 12px;
+}
+
+.store-ticket li div {
+    float: left;
+}
+
+.store-ticket .header {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #ccc;
+}
+
+.store-ticket .header .thumbnail {
+    width: 30%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+}
+
+.store-ticket .header .thumbnail img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 4px 4px / 0 0 0 0;
+}
+
+.store-ticket .header .info {
+    width: 70%;
+    height: 100%;
+    background: #aaf;
+}
+
+.store-ticket .footer {
+    width: 100%;
+    height: 50px;
+}
