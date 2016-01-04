@@ -227,6 +227,7 @@
     border-radius: 4px;
     float: left;
     margin-bottom: 12px;
+    width: 100%;
 }
 
 .store-ticket li a {
@@ -234,10 +235,6 @@
     height: 100%;
     text-decoration: none;
     display: inline-block;
-}
-
-.store-ticket li:nth-child(2) {
-    margin: 0 12px;
 }
 
 .store-ticket li div {
@@ -255,21 +252,80 @@
     height: 100%;
     border: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .store-ticket .header .thumbnail img {
     width: 100%;
-    height: 100%;
-    border-radius: 0 0 4px 4px / 0 0 0 0;
 }
 
 .store-ticket .header .info {
     width: 70%;
     height: 100%;
-    background: #aaf;
+    padding: 8px;
+}
+
+.store-ticket .header .info div {
+    width: 100%;
+    float: left;
+}
+
+.store-ticket .header .info .title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.store-ticket .header .info .author,
+.store-ticket .header .info .detail {
+    font-size: 11px;
+    margin-bottom: 8px;
 }
 
 .store-ticket .footer {
     width: 100%;
     height: 50px;
+}
+
+.store-ticket .footer a:hover {
+    background: #eef7fd;
+}
+
+.store-ticket .footer .l,
+.store-ticket .footer .r {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.store-ticket .footer .l span {
+    width: 100%;
+    height: 50%;
+    float: left;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.store-ticket .footer .type {
+    padding-top: 7px;
+    font-size: 16px;
+}
+
+.store-ticket .footer .detail {
+    padding-top: 3px;
+    font-size: 11px;
+    color: #888;
+}
+
+.store-ticket .footer .r {
+    padding-top: 10px;
+}
+
+.store-ticket .footer .plice {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.store-ticket .footer .plice span {
+    font-size: 14px;
+    margin-left: 3px;
 }

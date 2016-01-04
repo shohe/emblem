@@ -20,10 +20,24 @@ $(function init() {
 
 /* store-ticket */
 $(function init() {
-    var w = $("#content").width();
-    $(".store-ticket li").each(function(index) {
-        var width = (w - (margin_big * 4)) / 3;
-        $(this).css({width: width});
-        if ((index - 1) % 3 == 0) $(this).css({"margin-left": margin_big, "margin-right": margin_big});
+    var w = $(".store-ticket").width();
+    $(".store-ticket .footer div").each(function(index) {
+        $(this).css({width: w/3, height: "100%", float: "left"});
+        if((index-1) % 3 == 0) {
+            $(this).css({
+                "width": w/3 - 2,
+                "border-left": "1px solid #ccc",
+                "border-right": "1px solid #ccc"
+            });
+        }
+    });
+
+    var h = $(".store-ticket .header .thumbnail").height();
+    $(".store-ticket .header .thumbnail img").each(function(index) {
+        var top = ($(this).height() - h) / 2
+        $(this).css({
+            position: "relative",
+            top: -top
+        });
     });
 })
