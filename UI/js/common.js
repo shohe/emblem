@@ -32,12 +32,15 @@ $(function init() {
         }
     });
 
-    var h = $(".store-ticket .header .thumbnail").height();
-    $(".store-ticket .header .thumbnail img").each(function(index) {
-        var top = ($(this).height() - h) / 2
-        $(this).css({
-            position: "relative",
-            top: -top
+    $(".store-ticket .header").each(function(index) {
+        $(".thumbnail",this).css({
+            height: $(this).height()
         });
+
+        // this image tag is changed by image data lists.
+        $(".thumbnail",this).append("<img src='./image/disney/one-day.jpg' alt='' />");
+
+        var top = ($(this).height() - $(".thumbnail img",this).height()) / 2
+        $(".thumbnail img",this).css({position: "relative", top: -top});
     });
 })
