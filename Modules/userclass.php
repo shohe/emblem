@@ -24,34 +24,60 @@
 	}
 
 
-
-
 	// User login 
 	class UserLogin{
 		private $id;
 		function __construct(){
 			$this->id = $_GET['id'];
-			$this->mysqli = new mysqli($db[host],$db[user],$db[pass],$db[dbname]);
 			session_start();
-			echo $this->id;
+//			echo $this->id;
+			}
+
+		public function login(){
+			require 'config.php';
+			try {
+			    $pdo = new PDO(
+			        sprintf('mysql:dbname=%s;host=%s;charset=%s',DBNAME,DBHOST,DBCHARSET),
+			        DBUSER,
+			        DBPASS,
+			        array(
+			            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+			            PDO::ATTR_EMULATE_PREPARES => false,
+			        )
+			    );
+			    $pdo->beginTransaction();
+			    $sql = 'SELECT * FROM eb_users WHERE id = :id';
+			    $stmt = $pdo->prepare($sql);
+			    $stmt->bindParam(':id', $this->id);
+			    $stmt->execute();
+			    $count = $stmt->rowCount();
+			    if($count == 1){
+			    	$_SESSION['id'] = $this->id;
+			    	echo "Logged in";
+			    	return true;
+			    }else{
+			    	echo "Couldn't log in";
+			    	return false;
+			    }
+		
+			} catch (Exception $e) {
+			    //var_dump($e->getMessage());
+			    $export['code'] = 500;
+			    //rollback when failed.
+			    $pdo->rollBack();
+			}
 		}
 
-		// public function login($this->id){
-		// 	$stmt = $this->mysqli->prepare("SELECT * FROM eb_users WHERE id = ?");
-		// 	$stmt->bind_param('s',$this->id);
-		// 	$stmt->execute();
 
-		// 	$stmt->store_result();
-		// 	if($stmt->num_rows == 1){
-		// 		$_SESSION['id'] = $this->id;
-		// 		return true;
-		// 	}			
-		// 	return false;
-		// }
+
+		public function logout(){
+			$_SESSION = array();
+			session_destroy();
+		}
 	}
 
-	new UserLogin();
-
+	$a = new UserLogin();
+	$a->login();
 
 
 
