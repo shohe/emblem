@@ -71,8 +71,13 @@
 
 
 		public function logout(){
-			$_SESSION = array();
-			session_destroy();
+			if($_SESSION['id']){
+				$_SESSION = array();
+				session_destroy();
+				echo "Logged out.";
+			}else{
+				echo "You're not logged in";
+			}
 		}
 	}
 
