@@ -3,6 +3,7 @@ var margin_small = 4.0;
 
 /* base */
 $(function init() {
+    $("#main").css({height:window.parent.screen.height});
     $("#side-menu").css({height:window.parent.screen.height});
 })
 
