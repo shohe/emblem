@@ -6,8 +6,8 @@
 
 	require 'config.php';
 
-	// Get user information
-	class GetUser{
+/* ユーザー環境変数取得クラス */
+	class GetUserEnv{
 	    private $id;
 	    private $agent;
 	    private $hostaddress;
@@ -24,7 +24,7 @@
 	}
 
 
-	// User login 
+/* ユーザーログインクラス */
 	class UserLogin{
 		private $id;
 		function __construct(){
@@ -33,8 +33,9 @@
 //			echo $this->id;
 			}
 
+
+/* ログイン処理（データベースID照合＋セッション格納）*/
 		public function login(){
-			require 'config.php';
 			try {
 			    $pdo = new PDO(
 			        sprintf('mysql:dbname=%s;host=%s;charset=%s',DBNAME,DBHOST,DBCHARSET),
@@ -56,7 +57,7 @@
 			    	echo "Logged in";
 			    	return true;
 			    }else{
-			    	echo "Couldn't log in";
+			    	echo "Couldn't find your ID";
 			    	return false;
 			    }
 		
@@ -69,7 +70,7 @@
 		}
 
 
-
+/* ログアウト（セッション削除） */
 		public function logout(){
 			if($_SESSION['id']){
 				$_SESSION = array();
@@ -86,16 +87,6 @@
 
 
 
-
-
-
-/*	$mysqli = new mysqli($db[host],$db[user],$db[pass],$db[dbname]);
-	if ($mysqli->connect_error){
-		print("接続失敗：" . $mysqli->connect_error);
-		exit();
-	}else{
-		print("Success!");
-	}*/
 
 
 
