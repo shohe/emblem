@@ -6,15 +6,16 @@
 
 	require 'config.php';
 
-/* ユーザー環境変数取得クラス */
-	class GetUserEnv{
+/***************************/
+/* ユーザー環境変数取得クラス*/
+/***************************/
+	class GetUser{
 	    private $id;
 	    private $agent;
 	    private $hostaddress;
 	    private $ipaddress;
 
-	    public function __construct(){
-	    // Get User's env info
+	    public function user_env(){
 	        $this->id = $_GET['id'];
 	        $this->agent = $_SERVER['HTTP_USER_AGENT'];
 	        $this->hostaddress = $_SERVER['REMOTE_HOST'];
@@ -23,19 +24,22 @@
 	    }
 	}
 
-
-/* ユーザーログインクラス */
+/***************************/
+/*  ユーザーログインクラス  */
+/***************************/
 	class UserLogin{
 		private $id;
+
+
+	/* コンストラクタ */
 		function __construct(){
-			$this->id = $_GET['id'];
-			session_start();
-//			echo $this->id;
+				$this->id = $_GET['id'];
+				session_start();
 			}
 
 
-/* ログイン処理（データベースID照合＋セッション格納）*/
-		public function login(){
+	/* ログイン処理（データベースID照合＋セッション格納）*/
+		public function user_login($id,$password){
 			try {
 			    $pdo = new PDO(
 			        sprintf('mysql:dbname=%s;host=%s;charset=%s',DBNAME,DBHOST,DBCHARSET),
@@ -49,11 +53,11 @@
 			    $pdo->beginTransaction();
 			    $sql = 'SELECT * FROM eb_users WHERE id = :id';
 			    $stmt = $pdo->prepare($sql);
-			    $stmt->bindParam(':id', $this->id);
+			    $stmt->bindParam(':id', $id);
 			    $stmt->execute();
 			    $count = $stmt->rowCount();
 			    if($count == 1){
-			    	$_SESSION['id'] = $this->id;
+			    	$_SESSION['id'] = $id;
 			    	echo "Logged in";
 			    	return true;
 			    }else{
@@ -70,26 +74,29 @@
 		}
 
 
-/* ログアウト（セッション削除） */
-		public function logout(){
+	/* ログアウト（セッション削除） */
+		public function user_logout(){
 			if($_SESSION['id']){
 				$_SESSION = array();
 				session_destroy();
 				echo "Logged out.";
-			}else{
-				echo "You're not logged in";
-			}
+		}
+
+	/* ハッシュ化 */
+		private function hash($password){
+			return md5($password . SALT);
 		}
 	}
 
 	$a = new UserLogin();
-	$a->login();
+	$a->user_login();
 
 
 
 
+/****************************************/
+/* 登録ユーザー情報をデータベースから取得  */
+/****************************************/
+	class UserDatabase{
 
-
-
-	// After user logined, manage login session
-	// Get user information from database
+	}
