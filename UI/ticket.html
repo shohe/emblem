@@ -22,7 +22,7 @@
         <div id="s-wrapper" class="row">
             <!-- SideMenu -->
             <div id="side-menu">
-                <a href="#"><div id="logo" class="menu-box-big"><img src="./image/logo.png" alt="user profiel image." /></div></a>
+                <a href="./login.html"><div id="logo" class="menu-box-big"><img src="./image/logo.png" alt="user profiel image." /></div></a>
                 <a href="./index.html"><div class="menu-box"><i class="fa fa-qrcode"></i></div></a>
                 <a href="./store.html"><div class="menu-box active"><i class="fa fa-plus"></i></div></a>
                 <a href="#"><div class="menu-box">a</div></a>
@@ -69,7 +69,7 @@
                                             </div>
                                             <div class="footer">
                                                 <div>
-                                                    <a href="#">
+                                                    <a data-toggle="modal" data-target="#buy-modal">
                                                         <span class="l">
                                                             <span class="type">大人</span>
                                                             <span class="detail">18歳以上</span>
@@ -156,6 +156,30 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="buy-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="message-wrap">
+                                <div class="img-box"><div><img src="./image/logo.png" alt="" /></div></div>
+                                <div class="message-box"><strong>パスワードを入力してください。</strong><br/>チケットの購入はクレジットまたはコンビニ決済となります。<br/>決済情報についてはアカウントの設定をご覧ください。</div>
+                            </div>
+                            <div class="form-wrap">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                <button type="submit" class="btn btn-primary" data-dismiss="modal">購入</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </body>
 </html>

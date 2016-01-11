@@ -3,8 +3,8 @@ var margin_small = 4.0;
 
 /* base */
 $(function init() {
-    $("#main").css({height:window.parent.screen.height});
-    $("#side-menu").css({height:window.parent.screen.height});
+    $("#main").css({height:$(window).height()});
+    $("#side-menu").css({height:$(window).height()});
 })
 
 /* setup image of ticket-author */
@@ -45,3 +45,15 @@ $(function init() {
         $(".thumbnail img",this).css({position: "relative", top: -top});
     });
 })
+
+/* store-ticket buy modal */
+$(function set_modal_logo() {
+    var imgPreloader = new Image();
+    var loc = window.location.pathname;
+    var dir = loc.substring(0, loc.lastIndexOf('/')) + "/image/logo.png";
+    imgPreloader.onload = function() {
+        console.log($(this).width());
+    }
+    imgPreloader.src = dir;
+    $('#buy-modal').on('shown.bs.modal', function () {});
+});
