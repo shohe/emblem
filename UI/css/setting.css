@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+#setting-wrap {
+    width: 100%;
+    color: rgba(230, 230, 230, 0.8);
+}
+
+#setting-wrap .inner-wrap {
+    width: 650px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#setting-wrap .title {
+    height: 70px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+#setting-wrap ul {
+    list-style: none;
+    padding: 0;
+}
+
+#setting-wrap ul li {
+    width: 25%;
+    height: 250px;
+    margin: 0 6.25%;
+    /* background: #ada; */
+    float: left;
+}
+
+#setting-wrap ul li:nth-child(2n) {
+    margin: 0;
+    margin-top: 40px;
+}
+
+#setting-wrap ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    text-align: center;
+    font-size: 12px;
+}
+
+#setting-wrap ul li a .image {
+    border: 1px solid rgba(24,110,144,0.9);
+    border-radius: 50%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+#setting-wrap ul li a .image-w {
+    border: 1px solid #0d3c4e;
+    border-radius: 50%;
+    width: 92%;
+    height: 92%;
+    margin: 4%;
+}
+
+#setting-wrap ul li a .image-w img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+#setting-wrap ul li a .name {
+    border: 1px solid rgba(24,110,144,0.9);
+    padding: 7px 3px;
+    color: rgba(230, 230, 230, 0.8);
+}
+
+#setting-wrap ul li a span {
+    border: 1px solid #0d3c4e;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+#setting-wrap .inner-wrap .content-box {
+    width: 100%;
+    height: 300px;
+    background: rgba(5, 24, 37, 0.5);
+    border-radius: 4px;
+}

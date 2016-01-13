@@ -57,3 +57,10 @@ $(function set_modal_logo() {
     imgPreloader.src = dir;
     $('#buy-modal').on('shown.bs.modal', function () {});
 });
+
+/* setting-wrap */
+$(function setup_setting_wrap() {
+    $("#setting-wrap").css({height:$(window).height()});
+    var size = $("#setting-wrap ul li a").width();
+    $("#setting-wrap ul li a .image").css({height:size,width:size});
+});
