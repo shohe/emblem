@@ -46,8 +46,10 @@
 		}
 
 		/*　ユーザーログイン　*/
-		public function login(){
+		public function login($id,$pass){
 			$this->setSession();
+			$password = $this->hash($pass);
+				// データベース情報取得し、ハッシュ化した入力パスワードと照合する
 		}
 
 		/*　ユーザーログアウト　*/

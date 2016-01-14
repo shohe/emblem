@@ -11,5 +11,14 @@
 /***********************/
 	class Ticket{
 		private $tid;
+        /*　チケット取得　*/
+        public function get(){
+
+        }
+
+        /*　チケット登録　*/
+        public function create(){
+
+        }
 	}
 
