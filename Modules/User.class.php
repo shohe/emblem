@@ -15,6 +15,7 @@
 		private $hostaddress;
 		private $ipaddress;
 
+		/* 環境変数取得　*/
 		function __construct(){
 			$this->uid = (isset($_GET['uid'])) ? $_GET['uid'] : null;
 			$this->agent = $_SERVER['HTTP_USER_AGENT'];
@@ -22,7 +23,8 @@
 			$this->ipaddress = $_SERVER['REMOTE_ADDR'];
 		}
 
-		public function setSession() {
+		/* セッションセット　*/
+		private function setSession() {
 			session_start();
 			$_SESSION['uid'] = $this->uid;
 			$_SESSION['agent'] = $this->agent;
@@ -30,13 +32,27 @@
 			$_SESSION['ipaddress'] = $this->ipaddress;
 		}
 
-		/* ログアウト（セッション削除）*/
+		/* セッション削除 */
 		public function destroySession(){
 			if($_SESSION['uid']){
 				$_SESSION = array();
 				session_destroy();
-				echo "Logged out.";
 			}
+		}
+
+		/*　ユーザー登録　*/
+		public function regist(){
+				// データベース取得=>Insert 登録情報
+		}
+
+		/*　ユーザーログイン　*/
+		public function login(){
+			$this->setSession();
+		}
+
+		/*　ユーザーログアウト　*/
+		public function logout(){
+			$this->destroySession();
 		}
 
 		/* ハッシュ化 */
