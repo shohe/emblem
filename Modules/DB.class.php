@@ -33,8 +33,15 @@
 
         function execute ($sql){
                 try{
-                    $pdo = new PDO ($this->dsn, $this->user, $this->pass, array(
-                            PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'"));
+                    $pdo = new PDO(
+                        sprintf('mysql:dbname=%s;host=%s;charset=%s',DBNAME,DBHOST,DBCHARSET),
+                        DBUSER,
+                        DBPASS,
+                        array(
+                            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                            PDO::ATTR_EMULATE_PREPARES => false,
+                        )
+                    );
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute();
                     $data = $pdo->lastInsertId();
