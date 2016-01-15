@@ -1,13 +1,23 @@
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans|Dancing+Script|Cantarell);
 
 /* base */
 body {
-    background: #051825;
+    font-family: 'Cantarell', sans-serif;
+    background: -webkit-gradient(radial, 49% 0%, 0, 49% 0%, 153, color-stop(1.00, #00030a), color-stop(0.00, #183858));
+    background: -webkit-radial-gradient(49% 0%, circle, #183858, #00030a);
+    background: -moz-radial-gradient(49% 0%, circle, #183858, #00030a);
+    background: -o-radial-gradient(49% 0%, circle, #183858, #00030a);
+    background: -ms-radial-gradient(49% 0%, circle, #183858, #00030a);
+    background: radial-gradient(49% 0%, circle, #183858, #00030a);
 }
 
 #s-wrapper {
     width: 1024px;
     margin: 0 auto;
+    background-image: url("../image/bg.png");
+    background-repeat: no-repeat;
+    height: 100%;
 }
 
 #side-menu {
@@ -34,6 +44,7 @@ body {
 }
 
 .title-name {
+    font-family: 'Dancing Script', cursive;
     font-size: 18px;
 }
 
@@ -72,20 +83,18 @@ body {
 }
 
 #content {
-    margin: 12px 0;
     background: #fefefe;
-
-    /* debug */
-    height: 900px;
+    margin-bottom: 12px;
+    border-radius: 0 0 4px 4px  / 0 0 4px 4px;
 }
 
 #content-head {
     height: 68px;
     border: 1px solid #0d3c4e;
-    background: #051825;
+    background: rgba(5, 24, 37, 0.5);
     border-radius: 4px 4px 0 0 / 4px 4px 0 0;
     position: relative;
-    top: -1px;
+    margin-top: 12px;
 }
 
 #side-menu a {
@@ -126,6 +135,7 @@ body {
 }
 
 #logo img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
+    margin: 0 5%;
 }

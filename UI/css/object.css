@@ -1,3 +1,86 @@
+/* ============== LOGIN ============== */
+#main .login-wrap {
+    width: 300px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.login-wrap .logo {
+    width: 100%;
+    height: 170px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-wrap .logo img {
+    width: 100px;
+    margin: 0 auto;
+    -webkit-filter: drop-shadow(0 12px 8px #0d1a37);
+}
+
+.login-wrap .logo h3,
+.login-wrap .logo p {
+    margin: 0;
+    padding: 0;
+    color: #eee;
+}
+
+.login-wrap .logo h3 {
+    font-family: 'Dancing Script', cursive;
+    margin-top: 10px;
+}
+
+.login-wrap .logo p {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.login-wrap .form-wrap {
+    width: 100%;
+    height: 400px;
+    padding-top: 50px;
+}
+
+.login-wrap .form-wrap input,
+.login-wrap .form-wrap button {
+    margin: 8px 0;
+    width: 100%;
+    height: 40px;
+}
+
+.login-wrap .form-wrap button {
+    font-size: 20px;
+}
+
+.login-wrap .line-box {
+    margin-top: 12px;
+    height: 20px;
+    width: 100%;
+}
+
+.login-wrap .line-box .line {
+    height: 50%;
+    width: 120px;
+    float: left;
+    margin: 0 10px;
+    border-bottom: 1px solid rgb(26, 55, 83);
+}
+
+.login-wrap .line-box .or {
+    height: 100%;
+    width: 20px;
+    text-align: center;
+    color: rgb(26, 55, 83);
+    float: left;
+}
+
+.login-wrap .form-wrap .regist {
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+
 /* ============== TEXT ============== */
 .text-right {
     text-align: right;
@@ -227,6 +310,7 @@
     border-radius: 4px;
     float: left;
     margin-bottom: 12px;
+    width: 100%;
 }
 
 .store-ticket li a {
@@ -236,40 +320,208 @@
     display: inline-block;
 }
 
-.store-ticket li:nth-child(2) {
-    margin: 0 12px;
-}
-
 .store-ticket li div {
     float: left;
 }
 
 .store-ticket .header {
     width: 100%;
-    height: 100px;
     border-bottom: 1px solid #ccc;
 }
 
 .store-ticket .header .thumbnail {
     width: 30%;
-    height: 100%;
     border: 0;
+    margin: 0;
+    border-radius: 4px 4px 0 0 / 0 0 0 0 ;
     padding: 0;
+    overflow: hidden;
 }
 
 .store-ticket .header .thumbnail img {
     width: 100%;
-    height: 100%;
-    border-radius: 0 0 4px 4px / 0 0 0 0;
+
 }
 
 .store-ticket .header .info {
     width: 70%;
     height: 100%;
-    background: #aaf;
+    padding: 8px;
+}
+
+.store-ticket .header .info div {
+    width: 100%;
+    float: left;
+}
+
+.store-ticket .header .info .title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.store-ticket .header .info .author,
+.store-ticket .header .info .detail {
+    font-size: 11px;
+    margin-bottom: 8px;
 }
 
 .store-ticket .footer {
     width: 100%;
     height: 50px;
+}
+
+.store-ticket .footer a:hover {
+    background: #eef7fd;
+    cursor: pointer;
+}
+
+.store-ticket .footer .l,
+.store-ticket .footer .r {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.store-ticket .footer .l span {
+    width: 100%;
+    height: 50%;
+    float: left;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.store-ticket .footer .type {
+    padding-top: 7px;
+    font-size: 16px;
+}
+
+.store-ticket .footer .detail {
+    padding-top: 3px;
+    font-size: 11px;
+    color: #888;
+}
+
+.store-ticket .footer .r {
+    padding-top: 10px;
+}
+
+.store-ticket .footer .plice {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.store-ticket .footer .plice span {
+    font-size: 14px;
+    margin-left: 3px;
+}
+
+
+/* ============== MY-TICKET-DETAIL ============== */
+.my-ticket-detail ul {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.my-ticket-detail ul li {
+    margin-bottom: 8px;
+}
+
+.my-ticket-detail ul li .right {
+    height: 100%;
+    width: 60%;
+    display: inline-block;
+    float: left;
+    padding-left: 4px;
+    padding-top: 13px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.my-ticket-detail ul li .right span {
+    margin-left: 3px;
+    font-size: 13px;
+}
+
+.my-ticket-detail ul li .left {
+    height: 100%;
+    width: 40%;
+    padding-right: 4px;
+    padding-top: 18px;
+    text-align: right;
+    display: inline-block;
+    float: left;
+    font-size: 13px;
+}
+
+
+/* ============== MODAL ============== */
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-content .modal-header,
+.modal-content .modal-footer {
+    border: 0;
+}
+
+.modal-content .modal-body {
+    padding: 0 5%;
+    padding-bottom: 4px;
+}
+
+.modal-content .modal-body .message-wrap {
+    width: 100%;
+    height: 80px;
+}
+
+.modal-body .message-wrap .img-box,
+.modal-body .message-wrap .message-box {
+    float: left;
+    height: 100%;
+}
+
+.modal-body .message-wrap .img-box {
+    width: 30%;
+}
+
+.modal-body .message-wrap .img-box div {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.modal-body .message-wrap .img-box div img {
+    height: 100%;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-body .message-wrap .message-box {
+    width: 70%;
+    font-size: 12px;
+    padding: 15px 0;
+}
+
+
+.modal-body .form-wrap {
+    width: 90%;
+    height: 34px;
+    margin: 0 auto;
+    margin-top: 12px;
+    margin-bottom: 70px;
+    border-top: 1px solid #dedede;
+    padding-top: 24px;
+}
+
+.modal-body .form-wrap input {
+    width: 70%;
+    float: left;
+}
+
+.modal-body .form-wrap button {
+    width: 25%;
+    margin-left: 5%;
+    float: left;
 }

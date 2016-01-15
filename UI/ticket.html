@@ -22,7 +22,7 @@
         <div id="s-wrapper" class="row">
             <!-- SideMenu -->
             <div id="side-menu">
-                <a href="#"><div id="logo" class="menu-box-big"><img src="./image/logo.png" alt="user profiel image." /></div></a>
+                <a href="./login.html"><div id="logo" class="menu-box-big"><img src="./image/logo.png" alt="user profiel image." /></div></a>
                 <a href="./index.html"><div class="menu-box"><i class="fa fa-qrcode"></i></div></a>
                 <a href="./store.html"><div class="menu-box active"><i class="fa fa-plus"></i></div></a>
                 <a href="#"><div class="menu-box">a</div></a>
@@ -49,29 +49,106 @@
                         </div>
 
                         <!-- Content -->
-                        <div id="content" class="object-radius">
-                            <div id="content-head">
-                                <div class="detail-header">
+                        <div id="content-head">
+                            <div class="detail-header">
 
-                                </div>
                             </div>
+                        </div>
+                        <div id="content" class="object-radius">
                             <div class="row">
                                 <div class="col-md-12">
                                     <ul class="store-ticket">
                                         <li>
-                                            <a href="#">
-                                                <div class="header">
-                                                    <div class="thumbnail"><img src="./image/placeholder.png" alt="" /></div>
-                                                    <div class="info">
-                                                        <div class="title">1-DAY PASSPORT</div>
-                                                        <div class="author">TokyoDisneyResort.inc</div>
-                                                    </div>
+                                            <div class="header">
+                                                <div class="thumbnail"></div>
+                                                <div class="info">
+                                                    <div class="title">1-DAY PASSPORT</div>
+                                                    <div class="author">TokyoDisneyResort.inc</div>
+                                                    <div class="detail">東京ディズニーランドまたは東京ディズニーシーを1日楽しめるチケットです。 ※1日に両方のパークをご利用いただくことはできません。</div>
                                                 </div>
-                                                <div class="footer"></div>
-                                            </a>
+                                            </div>
+                                            <div class="footer">
+                                                <div>
+                                                    <a data-toggle="modal" data-target="#buy-modal">
+                                                        <span class="l">
+                                                            <span class="type">大人</span>
+                                                            <span class="detail">18歳以上</span>
+                                                        </span>
+                                                        <span class="r">
+                                                            <span class="plice">6,900<span>円</span></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <a href="#">
+                                                        <span class="l">
+                                                            <span class="type">中人</span>
+                                                            <span class="detail">中学生 / 高校生</span>
+                                                        </span>
+                                                        <span class="r">
+                                                            <span class="plice">6,000<span>円</span></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <a href="#">
+                                                        <span class="l">
+                                                            <span class="type">小人</span>
+                                                            <span class="detail">幼児（4歳以上） / 小学生</span>
+                                                        </span>
+                                                        <span class="r">
+                                                            <span class="plice">4,500<span>円</span></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </li>
-                                        <li><a href="#">a</a></li>
-                                        <li><a href="#">a</a></li>
+
+                                        <li>
+                                            <div class="header">
+                                                <div class="thumbnail"></div>
+                                                <div class="info">
+                                                    <div class="title">SENIOR PASSPORT</div>
+                                                    <div class="author">TokyoDisneyResort.inc</div>
+                                                    <div class="detail">65歳以上の方がご利用いただけるチケットで、東京ディズニーランド、東京ディズニーシーどちらかのパークを1日楽しめます。</div>
+                                                </div>
+                                            </div>
+                                            <div class="footer">
+                                                <div>
+                                                    <a href="#">
+                                                        <span class="l">
+                                                            <span class="type">大人</span>
+                                                            <span class="detail">18歳以上</span>
+                                                        </span>
+                                                        <span class="r">
+                                                            <span class="plice">6,200<span>円</span></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <a href="#">
+                                                        <span class="l">
+                                                            <span class="type">中人</span>
+                                                            <span class="detail">中学生 / 高校生</span>
+                                                        </span>
+                                                        <span class="r">
+                                                            <span class="plice">-<span>円</span></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <a href="#">
+                                                        <span class="l">
+                                                            <span class="type">小人</span>
+                                                            <span class="detail">幼児（4歳以上） / 小学生</span>
+                                                        </span>
+                                                        <span class="r">
+                                                            <span class="plice">-<span>円</span></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -79,6 +156,30 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="buy-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="message-wrap">
+                                <div class="img-box"><div><img src="./image/logo.png" alt="" /></div></div>
+                                <div class="message-box"><strong>パスワードを入力してください。</strong><br/>チケットの購入はクレジットまたはコンビニ決済となります。<br/>決済情報についてはアカウントの設定をご覧ください。</div>
+                            </div>
+                            <div class="form-wrap">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                <button type="submit" class="btn btn-primary" data-dismiss="modal">購入</button>
+                            </div>
+                        </div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </body>
 </html>
