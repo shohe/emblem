@@ -86,9 +86,6 @@ body {
     background: #fefefe;
     margin-bottom: 12px;
     border-radius: 0 0 4px 4px  / 0 0 4px 4px;
-
-    /* debug */
-    height: 900px;
 }
 
 #content-head {

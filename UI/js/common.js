@@ -5,6 +5,7 @@ var margin_small = 4.0;
 $(function init() {
     $("#main").css({height:$(window).height()});
     $("#side-menu").css({height:$(window).height()});
+    $("#content").css({"min-height":$(window).height()-130});
 })
 
 /* setup image of ticket-author */
@@ -52,7 +53,7 @@ $(function set_modal_logo() {
     var loc = window.location.pathname;
     var dir = loc.substring(0, loc.lastIndexOf('/')) + "/image/logo.png";
     imgPreloader.onload = function() {
-        console.log($(this).width());
+        // console.log($(this).width());
     }
     imgPreloader.src = dir;
     $('#buy-modal').on('shown.bs.modal', function () {});
