@@ -48,7 +48,53 @@
 
 		/*　ユーザー登録　*/
 		public function regist(){
-				// データベース取得=>Insert 登録情報
+			if (isset($_POST["up"])) {
+				$id = htmlspecialchars($_POST["id"],ENT_QUOTES);
+				$pass = htmlspecialchars($_POST["pass"],ENT_QUOTES);
+				$password = hash($pass);
+				//----------------------
+				//空ならエラー
+				//----------------------
+				if ($id == "" ) { $error = '<p class="error">IDが入っていません</p>'; }
+				if ($pass == "" ) { $error = '<p class="error">パスワードが入っていません</p>'; }
+				//----------------------
+				//文字数確認
+				//----------------------
+				$sid = strlen($id);
+				$spass = strlen($pass);
+				if ($sid < 4) {$error ='<p class="error">IDは４文字以上で設定してください</p>';}
+				if ($spass < 4) { $error ='<p class="error">パスワードは４文字以上で設定してください</p>';
+			}
+			//----------------------
+			// プレグマッチ
+			//----------------------
+			if (preg_match("/^[a-zA-Z0-9]+$/", $pass)) { $pass = $pass; }else{
+				$error = '<p class="error">パスワードは半角英数で登録してください。</p>'; }
+			if (preg_match("/^[a-zA-Z0-9]+$/", $id)) { $id = $id; }else{
+				$error = '<p class="error">IDは半角英数で登録してください。</p>'; }
+			//---------------------
+			//重複チェック
+			//---------------------
+				$stmt = $pdo -> query("SELECT * FROM テーブル名");
+				while($item = $stmt->fetch()) {
+					if($item['id'] == $id){
+						$error = '<p class="error">ご希望のメールアドレスは既に使用されています。</p>';
+					}else{
+						$id = $id;
+					}
+				}
+			//-------------------
+			//DBに登録
+			//-------------------
+				if ($error == "" ) {
+					$stmt = $pdo -> prepare("INSERT INTO テーブル名 (dd,id,pass) VALUES ('', :id, :pass)");
+					$stmt -> bindParam(':id', $id, PDO::PARAM_STR);
+					$stmt -> bindParam(':pass', $password, PDO::PARAM_STR);
+					$stmt -> execute();
+					// header('Location: login.php');
+					exit;
+				}
+			}
 		}
 
 		/*　ユーザーログイン(Form)　*/
