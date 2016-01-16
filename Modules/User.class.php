@@ -20,6 +20,8 @@
 
 		private $dbpass;
 		private $uget;
+		private $errorMessage;
+		$errorMessage = "";
 
 		/* 環境変数取得　*/
 		function __construct(){
@@ -40,10 +42,8 @@
 
 		/* セッション削除 */
 		public function destroySession(){
-			if($_SESSION['uid']){
-				$_SESSION = array();
-				session_destroy();
-			}
+			$_SESSION = array();
+			session_destroy();
 		}
 
 		/*　ユーザー登録　*/
@@ -53,16 +53,15 @@
 
 		/*　ユーザーログイン(Form)　*/
 		public function formLogin(){
-			$errorMessage = "";
 			if(isset($_POST["login"])){					
 				//Form check
 				$this->uid = (isset($_POST["id"])) ? $_POST["id"] : null;
 				$this->upass = (isset($_POST["pass"])) ? $_POST["pass"] : null;
 				$this->upass = $this->hash($upass);
 				if(!$uid){
-					$errorMessage = "Please enter ID.";
+					$this->errorMessage = "Please enter ID.";
 				}else if(!$upass){
-					$errorMessage = "Please enter password.";
+					$this->errorMessage = "Please enter password.";
 				}
 
 				//Authentication
@@ -77,7 +76,7 @@
 					exit;
 				} else {
 					// Failed
-					$errorMessage = "Authentication failed. Please try again. If you have forgotten your password, you can reset it."
+					$this->errorMessage = "Authentication failed. Please try again. If you have forgotten your password, you can reset it."
 				}
 			} else {
 				// Do nothing if form were empty.
@@ -86,6 +85,12 @@
 
 		/*　ユーザーログアウト　*/
 		public function logout(){
+			session_start();
+			if (isset($_SESSION["id"])) {
+				$this->errorMessage = "Logout";
+			} else {
+				$this->errorMessage = "Session Timeout";
+			}
 			$this->destroySession();
 		}
 
