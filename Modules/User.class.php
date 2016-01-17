@@ -6,7 +6,8 @@
 // **
 
 	require_once 'config.php';
-	require_once 'User.model.php';
+	// require_once 'User.model.php';
+	require_once 'DB.class.php';
 
 /***********************/
 /*       ユーザークラス     */
@@ -20,8 +21,6 @@
 
 		private $dbpass;
 		private $uget;
-		private $errorMessage;
-		$errorMessage = "";
 
 		/* 環境変数取得　*/
 		function __construct(){
@@ -47,22 +46,22 @@
 		}
 
 		/*　ユーザー登録　*/
+		// http://qiita.com/tabo_purify/items/7fb077ddeb06dbe427ff
 		public function regist(){
-			if (isset($_POST["up"])) {
-				$id = htmlspecialchars($_POST["id"],ENT_QUOTES);
+			$error = "";
+			if (isset($_POST["signup"])) {
+				$mail = htmlspecialchars($_POST["mail"],ENT_QUOTES);
 				$pass = htmlspecialchars($_POST["pass"],ENT_QUOTES);
 				$password = hash($pass);
 				//----------------------
 				//空ならエラー
 				//----------------------
-				if ($id == "" ) { $error = '<p class="error">IDが入っていません</p>'; }
+				if ($mail == "" ) { $error = '<p class="error">メールアドレスが入っていません</p>'; }
 				if ($pass == "" ) { $error = '<p class="error">パスワードが入っていません</p>'; }
 				//----------------------
 				//文字数確認
 				//----------------------
-				$sid = strlen($id);
 				$spass = strlen($pass);
-				if ($sid < 4) {$error ='<p class="error">IDは４文字以上で設定してください</p>';}
 				if ($spass < 4) { $error ='<p class="error">パスワードは４文字以上で設定してください</p>';
 			}
 			//----------------------
@@ -70,27 +69,32 @@
 			//----------------------
 			if (preg_match("/^[a-zA-Z0-9]+$/", $pass)) { $pass = $pass; }else{
 				$error = '<p class="error">パスワードは半角英数で登録してください。</p>'; }
-			if (preg_match("/^[a-zA-Z0-9]+$/", $id)) { $id = $id; }else{
-				$error = '<p class="error">IDは半角英数で登録してください。</p>'; }
 			//---------------------
 			//重複チェック
 			//---------------------
-				$stmt = $pdo -> query("SELECT * FROM テーブル名");
-				while($item = $stmt->fetch()) {
-					if($item['id'] == $id){
+				$sql = "SELECT * FROM eb_users";
+				$db = new DB;
+				$item = $db->fetch($sql);
+				while($item) {
+					if($item['mail'] == $mail){
 						$error = '<p class="error">ご希望のメールアドレスは既に使用されています。</p>';
 					}else{
-						$id = $id;
+						$mail = $mail;
 					}
 				}
 			//-------------------
 			//DBに登録
 			//-------------------
 				if ($error == "" ) {
-					$stmt = $pdo -> prepare("INSERT INTO テーブル名 (dd,id,pass) VALUES ('', :id, :pass)");
-					$stmt -> bindParam(':id', $id, PDO::PARAM_STR);
-					$stmt -> bindParam(':pass', $password, PDO::PARAM_STR);
-					$stmt -> execute();
+					$sql = "INSERT INTO eb_users (type, pass, name, mail, join_date, birthday) VALUES ('user',:pass, :name, :mail, :join_date, :birthday)";
+					$db = new DB;
+					$regist = $db->execute($sql);
+					$sql -> bindParam(':pass', $password, PDO::PARAM_STR);
+					$sql -> bindParam(':mail', $mail, PDO::PARAM_STR);
+					$sql -> bindParam(':name', 'test_user', PDO::PARAM_STR);
+					$sql -> bindParam(':join_date', date("Y-m-d H:i:s") , PDO::PARAM_STR);
+					$sql -> bindParam(':birthday', '20150104', PDO::PARAM_STR);
+					$sql -> execute();
 					// header('Location: login.php');
 					exit;
 				}
@@ -99,7 +103,9 @@
 
 		/*　ユーザーログイン(Form)　*/
 		public function formLogin(){
-			if(isset($_POST["login"])){					
+			$errorMessage = "";
+
+			if(isset($_POST["login"])){
 				//Form check
 				$this->uid = (isset($_POST["id"])) ? $_POST["id"] : null;
 				$this->upass = (isset($_POST["pass"])) ? $_POST["pass"] : null;
@@ -123,9 +129,9 @@
 				} else {
 					// Failed
 					$this->errorMessage = "Authentication failed. Please try again. If you have forgotten your password, you can reset it."
-				}
-			} else {
+				} else {
 				// Do nothing if form were empty.
+				}
 			}
 		}
 
